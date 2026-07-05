@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quality or Nothing — Fan Petition</title>
+<style>
+  :root{
+    --night: #0b0e11;
+    --night-2: #12161b;
+    --red: #c8102e;
+    --red-dim: #7a0d1f;
+    --gold: #c9a227;
+    --paper: #edeae2;
+    --line: #2a2f35;
+    --green: #17301f;
+    --text-dim: #9aa1a8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--paper);
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: "Arial Narrow", "Oswald", "Helvetica Neue Condensed", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .mono {
+    font-family: "Courier New", Courier, monospace;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 72px 24px 56px;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(200,16,46,0.28), transparent 60%),
+      radial-gradient(ellipse 700px 400px at 15% 110%, rgba(23,48,31,0.35), transparent 60%),
+      var(--night);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    border: 1px solid rgba(201,162,39,0.4);
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 22px;
+  }
+
+  h1.display {
+    font-size: clamp(40px, 9vw, 96px);
+    line-height: 0.95;
+    margin: 0 0 18px;
+    color: var(--paper);
+  }
+  h1.display span {
+    color: var(--red);
+    display: block;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+  }
+
+  .subhead {
+    max-width: 620px;
+    margin: 0 auto 40px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  /* ---------- SCOREBOARD ---------- */
+  .scoreboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--night-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 28px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+
+  .scoreboard .label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .scoreboard .count {
+    font-size: clamp(38px, 6vw, 56px);
+    color: var(--red);
+    text-shadow: 0 0 14px rgba(200,16,46,0.55), 0 0 2px rgba(200,16,46,0.9);
+    min-width: 3ch;
+    text-align: center;
+  }
+
+  .scoreboard .divider {
+    width: 1px;
+    height: 40px;
+    background: var(--line);
+  }
+
+  .scoreboard .sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: left;
+  }
+  .scoreboard .sub strong { color: var(--paper); display:block; font-size: 14px; }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+
+  .statement {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+  }
+
+  .statement h2.display {
+    font-size: clamp(24px, 4vw, 32px);
+    margin: 0 0 18px;
+    color: var(--gold);
+  }
+
+  .statement p {
+    color: var(--text-dim);
+    line-height: 1.75;
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+
+  .demands {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .demands li {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 16px;
+    background: var(--night-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .demands .num.mono {
+    color: var(--red);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .demands .txt {
+    font-size: 15px;
+    color: var(--paper);
+  }
+  .demands .txt small {
+    display: block;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  /* ---------- FORM ---------- */
+  .signform {
+    border-top: 1px solid var(--line);
+  }
+  .signform h2.display {
+    font-size: clamp(22px, 4vw, 30px);
+    margin: 0 0 8px;
+  }
+  .signform .hint {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin: 0 0 28px;
+  }
+
+  form { display: grid; gap: 16px; }
+
+  label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  input, textarea {
+    width: 100%;
+    background: var(--night-2);
+    border: 1px solid var(--line);
+    color: var(--paper);
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  input:focus, textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    border-color: var(--gold);
+  }
+  textarea { resize: vertical; min-height: 70px; }
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 520px) {
+    .row2 { grid-template-columns: 1fr; }
+  }
+
+  button.submit {
+    justify-self: start;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.12s ease;
+    margin-top: 6px;
+  }
+  button.submit:hover { background: #a80d26; }
+  button.submit:active { transform: scale(0.98); }
+  button.submit:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.submit:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .status {
+    font-size: 14px;
+    padding: 10px 0;
+    min-height: 20px;
+  }
+  .status.ok { color: #7fbf8f; }
+  .status.err { color: var(--red); }
+
+  /* ---------- TEAMSHEET ---------- */
+  .teamsheet { border-top: 1px solid var(--line); }
+  .teamsheet h2.display {
+    font-size: clamp(22px, 4vw, 30px);
+    margin: 0 0 8px;
+  }
+  .teamsheet .hint { color: var(--text-dim); font-size: 14px; margin: 0 0 24px; }
+
+  .roster {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .roster .entry {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    background: var(--night-2);
+    padding: 12px 16px;
+  }
+  .roster .shirt {
+    font-family: "Courier New", monospace;
+    color: var(--gold);
+    font-size: 13px;
+    text-align: center;
+    border: 1px solid rgba(201,162,39,0.35);
+    border-radius: 3px;
+    padding: 4px 0;
+  }
+  .roster .name { font-size: 15px; color: var(--paper); }
+  .roster .name .msg { display: block; color: var(--text-dim); font-size: 13px; margin-top: 2px; font-style: italic; }
+  .roster .town { font-size: 12px; color: var(--text-dim); text-align: right; white-space: nowrap; }
+
+  .empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 14px;
+    background: var(--night-2);
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="eyebrow mono">Independent Supporters' Petition</span>
+    <h1 class="display">Quality<br/><span>or Nothing.</span></h1>
+    <p class="subhead">
+      A message to the board and ownership: this window, spend like it matters.
+      Every signature below is a supporter asking for genuine, proven quality in —
+      not squad depth for the sake of it.
+    </p>
+
+    <div class="scoreboard">
+      <div>
+        <div class="label">Signed</div>
+        <div class="count mono" id="count">000</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sub">
+        <strong id="latest-name">Be the first</strong>
+        just signed
+      </div>
+    </div>
+  </div>
+
+  <section class="statement">
+    <h2 class="display">Why we're signing</h2>
+    <p>
+      Every transfer window brings the same promise — ambition, evolution, a squad
+      built to compete on every front. Supporters are asking for it to actually show
+      up on the team sheet this season, not just in the press conference.
+    </p>
+    <p>
+      This isn't about any one name. It's about backing the manager with the
+      right profile of player: proven at the level we want to compete at, hungry,
+      and able to start from day one.
+    </p>
+
+    <ul class="demands">
+      <li>
+        <span class="num mono">01</span>
+        <span class="txt">Recruit for immediate impact
+          <small>Signings ready to start now, not projects for 2028.</small>
+        </span>
+      </li>
+      <li>
+        <span class="num mono">02</span>
+        <span class="txt">Fill the positions that actually need it
+          <small>Listen to the manager's stated priorities, not the market's leftovers.</small>
+        </span>
+      </li>
+      <li>
+        <span class="num mono">03</span>
+        <span class="txt">Match spending to ambition
+          <small>If the target is the top four, the business has to reflect that.</small>
+        </span>
+      </li>
+      <li>
+        <span class="num mono">04</span>
+        <span class="txt">Move early, not on deadline day
+          <small>Give new signings a preseason, not a introduction mid-crisis.</small>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="signform">
+    <h2 class="display">Add your name</h2>
+    <p class="hint">Your name and message will be visible to everyone who views this petition.</p>
+    <form id="petition-form">
+      <div class="row2">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" maxlength="40" placeholder="e.g. J. Okwakol" required />
+        </div>
+        <div>
+          <label for="town">Supporting from (optional)</label>
+          <input type="text" id="town" maxlength="30" placeholder="e.g. Kampala" />
+        </div>
+      </div>
+      <div>
+        <label for="message">Message to the board (optional)</label>
+        <textarea id="message" maxlength="140" placeholder="Keep it short — 140 characters."></textarea>
+      </div>
+      <button type="submit" class="submit" id="submit-btn">Sign the petition</button>
+      <div class="status" id="status"></div>
+    </form>
+  </section>
+
+  <section class="teamsheet">
+    <h2 class="display">The teamsheet</h2>
+    <p class="hint">Most recent supporters to sign, newest first.</p>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <footer>
+    This is an independent, fan-made petition and is not affiliated with, endorsed
+    by, or produced on behalf of Manchester United Football Club, INEOS, or any
+    of their representatives. Signatures are stored to show collective support
+    and are visible to anyone who opens this page.
+  </footer>
+
+<script>
+(function () {
+  const KEY = "mufc_petition_signatures";
+  const form = document.getElementById("petition-form");
+  const statusEl = document.getElementById("status");
+  const submitBtn = document.getElementById("submit-btn");
+  const countEl = document.getElementById("count");
+  const latestNameEl = document.getElementById("latest-name");
+  const rosterEl = document.getElementById("roster");
+
+  function formatCount(n) {
+    return String(n).padStart(3, "0");
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function render(signatures) {
+    countEl.textContent = formatCount(signatures.length);
+    latestNameEl.textContent = signatures.length ? signatures[0].name : "Be the first";
+
+    if (!signatures.length) {
+      rosterEl.innerHTML = '<div class="empty">No one has signed yet. Kick things off.</div>';
+      return;
+    }
+
+    rosterEl.innerHTML = signatures
+      .slice(0, 25)
+      .map((s, i) => {
+        const shirt = String(signatures.length - i).padStart(2, "0");
+        const town = s.town ? escapeHtml(s.town) : "";
+        const msg = s.message ? `<span class="msg">"${escapeHtml(s.message)}"</span>` : "";
+        return `
+          <div class="entry">
+            <div class="shirt mono">${shirt}</div>
+            <div class="name">${escapeHtml(s.name)}${msg}</div>
+            <div class="town">${town}</div>
+          </div>`;
+      })
+      .join("");
+  }
+
+  async function loadSignatures() {
+    try {
+      const result = await window.storage.get(KEY, true);
+      return result && result.value ? JSON.parse(result.value) : [];
+    } catch (err) {
+      return [];
+    }
+  }
+
+  async function saveSignatures(signatures) {
+    await window.storage.set(KEY, JSON.stringify(signatures), true);
+  }
+
+  async function init() {
+    const signatures = await loadSignatures();
+    render(signatures);
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const town = document.getElementById("town").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name) {
+      statusEl.textContent = "Enter your name to sign.";
+      statusEl.className = "status err";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusEl.textContent = "Signing...";
+    statusEl.className = "status";
+
+    try {
+      const signatures = await loadSignatures();
+      signatures.unshift({ name, town, message, ts: Date.now() });
+      await saveSignatures(signatures);
+      render(signatures);
+      form.reset();
+      statusEl.textContent = "Thanks — you're on the teamsheet.";
+      statusEl.className = "status ok";
+    } catch (err) {
+      statusEl.textContent = "Something went wrong. Please try again.";
+      statusEl.className = "status err";
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  init();
+})();
+</script>
+
+</body>
+</html>
